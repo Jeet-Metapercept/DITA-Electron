@@ -12,7 +12,7 @@ const ipcRenderer = require('electron').ipcRenderer;
     })
 	ipcRenderer.on('updateNotAvailable', function(event, text) {
 			var no_update = document.querySelector("#notify");
-			no_update.innerHTML = "Latest Version : v" + $scope.appVersion;
+			no_update.innerHTML = "v " + $scope.appVersion;
 			no_update.opened = true;
     })	
 	//update downloaded
