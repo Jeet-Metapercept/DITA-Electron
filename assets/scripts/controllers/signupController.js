@@ -2,10 +2,9 @@ appName.controller('signupController', function ($rootScope, $scope, electron, i
 	
 	$scope.throbber = false;
 	$scope.signup = function(){
+		$('.spinner').show();
 		$scope.throbber = true;
-		$timeout(function () {
-			$scope.throbber = false;
-		}, 7000);
+		
 		var user = document.querySelector("#notify");
 		firebase.auth().createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
 		.then(function(){ 
@@ -20,7 +19,8 @@ appName.controller('signupController', function ($rootScope, $scope, electron, i
 			
 		.catch(function(error){
 			if(error != null){
-				//$scope.throbber = false;
+				$('.spinner').hide();
+				$scope.throbber = false;
 				console.log(error.message);
 				user.innerHTML = error.message;
 				user.opened = true;

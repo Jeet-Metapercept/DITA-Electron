@@ -7,10 +7,8 @@ appName.controller('loginController', function ($rootScope, $scope, electron, ip
 	};
 	
 	$scope.login = function(){
+		$('.spinner').show();
 		$scope.throbber = true;
-		$timeout(function () {
-			$scope.throbber = false;
-		}, 7000);
 		var user = document.querySelector("#notify");
 		firebase.auth().signInWithEmailAndPassword($scope.user.email, $scope.user.password)
 		.then(function(){
@@ -23,6 +21,8 @@ appName.controller('loginController', function ($rootScope, $scope, electron, ip
 				}, 2000);
 			})
 		.catch(function(error){
+			$('.spinner').hide();
+			$scope.throbber = false;
 			if(error != null){			
 				console.log(error.message);
 				user.innerHTML = error.message;
