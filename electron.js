@@ -25,7 +25,7 @@ function createDefaultWindow() {
 	frame: true,
     backgroundColor: '#fafafa',
     //show: false,
-    icon: __dirname + '/assets/img/icon.ico'
+    icon: __dirname + '/assets/img/icon.png'
 	});
 
     win.loadURL(`file://${__dirname}/index.html`);
