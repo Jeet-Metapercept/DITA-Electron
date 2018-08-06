@@ -1,0 +1,71 @@
+<div class="col-md-12">
+<div style="position:absolute; right:50%; bottom: 2%;">
+    <span id="check"></span>
+</div>
+
+	<div>
+		<main style="margin-left: 90%; ">
+		  <article class="wwdc">
+			<span class="spin">
+			  <!-- Large Circles -->
+			  <div class="large circle one"></div>
+			  <div class="large circle two"></div>
+			  <div class="large circle three"></div>
+			  <div class="large circle four"></div>
+			  <div class="large circle five"></div>
+			  <div class="large circle six"></div>
+			  <div class="large circle seven"></div>
+			  <div class="large circle eight"></div>
+			</span>
+			<span class="pulse">
+			  <!-- Small Shapes -->
+			  <div class="small circle one"></div>
+			  <div class="small squircle two"></div>
+			  <div class="small circle three"></div>
+			  <div class="small squircle four"></div>
+			  <div class="small circle five"></div>
+			  <div class="small squircle six"></div>
+			  <div class="small circle seven"></div>
+			  <div class="small squircle eight"></div>
+			</span>
+			  <!-- Squircles -->
+			  <!-- <span class="spin-reverse">
+				<div class="large squircle one"></div>
+			  </span> -->
+			  
+		  </article>
+		</main>
+	</div>
+
+	<x-card>
+		<main>
+		<h2><strong>Updater</strong></h2>
+		</main>
+	</x-card>
+
+	<x-box >
+	  <x-button ui-sref="auth.main">
+		<x-label>go to main</x-label>
+	  </x-button>
+
+	  <x-button ng-click="doBeep();" style="margin-left: 5px;">
+		<x-label>Beep</x-label>
+	  </x-button>
+
+	  <x-button ng-click="showUpdateMessage();" style="margin-left: 5px;">
+		<x-label>Message</x-label>
+	  </x-button>
+	</x-box>
+	
+	
+	<x-card>
+	  <main>
+		<h4><strong>Details</strong></h4>
+		<p class="small">Update Package : <span id="transferred"></span> / <span id="total"></span>&nbsp;</p>
+		<p class="small">Download Speed : <span id="speed"></span></p>
+		<p class="small">Download : <span id="percent" ></span></p>
+		<p class="small"><x-progressbar value="0.{{download_complete}}"></x-progressbar></p>
+	  </main>
+	</x-card>
+
+</div>

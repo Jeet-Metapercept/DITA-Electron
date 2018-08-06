@@ -7,21 +7,39 @@ angular.module('app.routes', [])
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
     $stateProvider
-        .state('main', {
+		// Login Page
+        .state("login", {
+            url: "/login",
+            templateUrl: 'assets/scripts/templates/login.html',
+            controller: 'loginController'
+        })
+		.state("signup", {
+            url: "/signup",
+            templateUrl: 'assets/scripts/templates/signup.html',
+            controller: 'signupController'
+        })
+		// Authenticated
+        .state("auth", {
+            abstract: true,
+            // this state url
+            url: "",
+            templateUrl: 'assets/scripts/templates/authenticated.html'
+        })	
+        .state('auth.main', {
             url: '/main',
             templateUrl: 'assets/scripts/templates/main.html',
             controller: 'mainController'
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'assets/scripts/templates/login.html',
-            controller: 'loginController'
+        .state('auth.updater', {
+            url: '/updater',
+            templateUrl: 'assets/scripts/templates/updater.html',
+            controller: 'updateController'
         })
-        .state('signup', {
+        /* .state('auth.signup', {
             url: '/signup',
             templateUrl: 'assets/scripts/templates/signup.html',
             controller: 'signupController'
-        })
+        }) */
 
-    $urlRouterProvider.otherwise('/main')
+    $urlRouterProvider.otherwise('/login')
 }]);

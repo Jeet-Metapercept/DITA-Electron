@@ -24,10 +24,14 @@
 	
 	<script src="assets/components/electangular/electangular.js"></script>
 	
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+	
 	<script src="assets/scripts/app.js"></script>
 	<script src="assets/scripts/routes.js"></script>
     <!-- Controllers -->
     <script src="assets/scripts/controllers/mainController.js"></script>
+	<script src="assets/scripts/controllers/updateController.js"></script>
     <script src="assets/scripts/controllers/loginController.js"></script>
     <script src="assets/scripts/controllers/signupController.js"></script>
     <!-- Services -->
@@ -41,10 +45,11 @@
 <body ng-app="app">
 <div class="view-animation" ui-view></div>
 <x-notification id="notify" timeout="3500"></x-notification>
-	<!-- <script>
+	<script>
 		// You can also require other files to run in this process
-		require('./titlebar.js')
-	</script> -->
+		//require('./titlebar.js')
+		require('./renderer.js')
+	</script>
     <script>
         const ipcRenderer = require('electron').ipcRenderer;
 		// wait for an updateAvailable message

@@ -1,1 +1,32 @@
-<h2>SIGNUP</h2>
+<div class="col-md-12">
+	<div class="centered">
+	<article>
+		<section>
+		<x-card>
+		<main>
+			<h3 class="text-uppercase">Signup</h3>
+			<hr>
+				<x-input type="email" value="abc@meta.com" ng-model="user.email">
+				  <x-icon name="email"></x-icon>
+				</x-input>
+				<x-input type="password" minlength="4" ng-model="user.password" maxlength="12" value="meta123">
+				  <x-icon name="lock"></x-icon>
+				</x-input>
+			<hr>
+			<x-box>
+				<x-button toggled ng-click="signup();">
+				  <x-label>Signup</x-label>
+				</x-button>
+				<x-button style="margin-left:10px" ui-sref="login">
+				  <x-label>Back</x-label>
+				</x-button>
+			</x-box>
+		</section>
+		</main>
+		</x-card>
+	</article>
+	</div>
+</div>
+<div class="spinner" ng-show="throbber">
+			<x-throbber class="text-center"></x-throbber>
+</div>
