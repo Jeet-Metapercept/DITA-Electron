@@ -1,0 +1,22 @@
+{
+  "name": "DITA-Electron",
+  "version": "0.0.1",
+  "author": "Metapercept",
+  "homepage": "./",
+  "description": "Dita-ot tranformation application",
+  "repository": "https://github.com/Jeet-Metapercept/DITA-Electron",
+  "main": "electron.js",
+  "dependencies": {
+    "electron-titlebar-windows": "^3.0.0",
+    "electron-updater": "^2.23.3",
+    "xel": "0.0.141"
+  },
+  "scripts": {
+    "build": "build --win",
+    "ship": "build --win -p always"
+  },
+  "devDependencies": {
+    "electron": "^1.7.5",
+    "electron-builder": "^19.56.2"
+  }
+}

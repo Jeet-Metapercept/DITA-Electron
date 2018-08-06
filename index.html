@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>DITA Electron</title>
+	<script src="assets/components/xel/xel.min.js"></script>
+	<link rel="stylesheet" href="assets/components/xel/themes/macos.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+	<link rel="stylesheet" href="assets/components/bootstrap/bootstrap.css">
+	
+	<!-- Insert this line above script imports  -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	
+	<!-- jQuery -->
+    <script src="assets/components/jquery/jquery.min.js"> </script>
+	
+	<!-- Angular -->
+	<script src="assets/components/angular/angular.js"></script>
+    <script src="assets/components/angular-resource/angular-resource.js"></script>
+    <script src="assets/components/angular-ui-router/angular-ui-router.js"></script>
+    <script src="assets/components/angular-route/angular-route.js"></script>
+    <script src="assets/components/angular-animate/angular-animate.js"></script>
+    <script src="assets/components/angular-aria/angular-aria.js"></script>	
+	
+	<script src="assets/components/electangular/electangular.js"></script>
+	
+	<script src="assets/scripts/app.js"></script>
+	<script src="assets/scripts/routes.js"></script>
+    <!-- Controllers -->
+    <script src="assets/scripts/controllers/mainController.js"></script>
+    <script src="assets/scripts/controllers/loginController.js"></script>
+    <script src="assets/scripts/controllers/signupController.js"></script>
+    <!-- Services -->
+    <script src="assets/scripts/services/loginService.js"></script>
+    <script src="assets/scripts/services/signupService.js"></script>
+	
+	<!-- Insert this line after script imports -->
+	<script>if (window.module) module = window.module;</script>
+</head>
+
+<body ng-app="app">
+<div class="view-animation" ui-view></div>
+<x-notification id="notify" timeout="3500"></x-notification>
+	<!-- <script>
+		// You can also require other files to run in this process
+		require('./titlebar.js')
+	</script> -->
+    <script>
+        const ipcRenderer = require('electron').ipcRenderer;
+		// wait for an updateAvailable message
+        ipcRenderer.on('updateAvailable', function(event, text) {
+            // changes the text
+            //var update = document.getElementById('check');
+            //update.innerHTML = "available & downloading...";
+			var update = document.querySelector("#notify");
+			update.innerHTML = "Updates Available";
+			update.opened = true;
+        })
+		
+		// wait for an updateNotAvailable message
+        ipcRenderer.on('updateNotAvailable', function(event, text) {
+            // changes the text
+            //var no_update = document.getElementById('check');
+            //no_update.innerHTML = "no updates available";
+			
+			var no_update = document.querySelector("#notify");
+			no_update.innerHTML = "No Updates Available";
+			no_update.opened = true;
+        })
+    </script>
+
+</body>
+
+</html>
