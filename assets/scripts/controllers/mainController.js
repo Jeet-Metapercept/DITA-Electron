@@ -23,7 +23,7 @@ const ipcRenderer = require('electron').ipcRenderer;
 			
 				$('#update_available').click();
     })
-	$('#update_available').click();
+	//$('#update_available').click();
 	var notification = document.querySelector("#notify");
 	$scope.installUpdates = function(){
 		ipcRenderer.send('quitAndInstall');
