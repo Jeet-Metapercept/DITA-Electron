@@ -1,6 +1,6 @@
 {
   "name": "DITA-Electron",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Metapercept",
   "homepage": "./",
   "description": "Dita-ot tranformation application",
@@ -10,6 +10,20 @@
     "electron-titlebar-windows": "^3.0.0",
     "electron-updater": "^2.23.3",
     "xel": "0.0.141"
+  },
+  "build": {
+		"nsis": {
+			"oneClick": false,
+			"perMachine": true,
+			"allowElevation": true,
+			"allowToChangeInstallationDirectory": true,
+			"deleteAppDataOnUninstall": true,
+			"createDesktopShortcut": true
+		},
+		"win": {
+			  "icon": "build/appicon.ico",
+			  "target": "NSIS"
+		}
   },
   "scripts": {
     "build": "build --win",
